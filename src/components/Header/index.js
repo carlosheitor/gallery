@@ -3,7 +3,7 @@ import styles from "./style.module.css";
 
 const Header = () => {
   return (
-    <div>
+    <div className={styles.header}>
       <h1 className={styles.title}>Galeria de Imagens</h1>
     </div>
   );

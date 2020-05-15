@@ -12,7 +12,8 @@ const Index = () => {
         edges {
           node {
             childImageSharp {
-              fluid {
+              fluid(maxHeight: 240, maxWidth: 480) {
+                originalName
                 ...GatsbyImageSharpFluid
               }
             }
@@ -24,10 +25,26 @@ const Index = () => {
   return (
     <div>
       <Header />
-      <div className="grid grid-cols-2 sm:grid-cols-2 gap-4">
+      <div className="grid max-w-4xl grid-cols-2 gap-4 mx-auto bg-white">
         {images.allFile.edges.map((image) => {
-          return <Image fluid={image.node.childImageSharp.fluid} />;
+          return (
+            <div className="shadow rounded">
+              <Image
+                className="rounded-t"
+                fluid={image.node.childImageSharp.fluid}
+              />
+              <p className="p-6">
+                {image.node.childImageSharp.fluid.originalName}
+              </p>
+            </div>
+          );
         })}
+      </div>
+
+      <div className="border-t mt-6 max-w-4xl mx-auto p-6">
+        <p className="text-center font-bold">
+          Site Desenvolvido por Carlos Heitor
+        </p>
       </div>
     </div>
   );
