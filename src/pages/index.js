@@ -4,6 +4,7 @@ import Image from "gatsby-image";
 import "../assets/style.css";
 
 import Header from "../components/Header";
+import Footer from "../components/Footer";
 
 const Index = () => {
   const images = useStaticQuery(graphql`
@@ -44,12 +45,7 @@ const Index = () => {
           );
         })}
       </div>
-
-      <div className="border-t mt-6 max-w-4xl mx-auto p-6">
-        <p className="text-center font-bold">
-          Site Desenvolvido por Carlos Heitor
-        </p>
-      </div>
+      <Footer />
     </div>
   );
 };
